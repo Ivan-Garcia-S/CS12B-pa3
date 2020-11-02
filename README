@@ -1,0 +1,11 @@
+1)README
+2)Makefile
+3)Dictionary.java
+4)DictionaryClient.java
+5)DictionaryInterface.java
+6)DuplicateKeyException.java
+7)KeyNotFoundException.java
+8)DictionaryTest.java
+
+//Notes
+I am using the method of two String fields to store "key" and "value" in my Nodeclass.
