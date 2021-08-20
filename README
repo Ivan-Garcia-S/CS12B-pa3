@@ -1,3 +1,6 @@
+Implementation of a Dictionary ADT in Java based on the linked list data structure.
+
+Files:
 1)README
 2)Makefile
 3)Dictionary.java
