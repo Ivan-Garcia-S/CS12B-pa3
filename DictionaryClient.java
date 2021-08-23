@@ -1,3 +1,4 @@
+// Dictionary client that tests functionality of the Dictionary ADT
 public class DictionaryClient{
 
 	   public static void main(String[] args){
@@ -22,14 +23,10 @@ public class DictionaryClient{
 	      System.out.println("key=8 "+(v==null?"not found":("value="+v)));
 	      System.out.println();
 
-	      // A.insert("2","f");  // causes DuplicateKeyException
-
 	      A.delete("1");
 	      A.delete("3");
 	      A.delete("7");
 	      System.out.println(A);
-
-	      // A.delete("8");  // causes KeyNotFoundException
 
 	      System.out.println(A.isEmpty());
 	      System.out.println(A.size());
