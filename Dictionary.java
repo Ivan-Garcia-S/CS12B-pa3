@@ -1,17 +1,18 @@
+// Dictionary ADT implementation
 public class Dictionary implements DictionaryInterface{
 	Node head;
 	Node tail;
 	
-	Dictionary(){
+	Dictionary() {
 		head = null;
 		tail = head;
 	}
 	
-	private class Node{
+	private class Node {
 		String key, value;
 		Node next;
 		
-		Node(String k, String v){
+		Node(String k, String v) {
 			key = k;
 			value = v;
 			next = null;
@@ -37,7 +38,7 @@ public class Dictionary implements DictionaryInterface{
 		Node temp = head;
 		
 		while(temp != null) {
-			if(temp.key.equals(key)){
+			if(temp.key.equals(key)) {
 				return temp.value;
 			}
 			temp = temp.next;
@@ -48,7 +49,6 @@ public class Dictionary implements DictionaryInterface{
 	public void insert(String key, String value) throws DuplicateKeyException {
 		Node temp = head;
 		if(lookup(key) == null) {
-			
 			if(head == null) {
 				head = new Node(key,value);
 				tail = head;
@@ -69,38 +69,32 @@ public class Dictionary implements DictionaryInterface{
 		}
 	}
 	
-	public void delete(String key) throws KeyNotFoundException{
+	public void delete(String key) throws KeyNotFoundException {
 		Node temp = head;
 		boolean found = false;
 		
-	//	if(head != null) {
-	//	if(head.key.equals(key))
-		if(head!=null){
-			if( head.key.equals(key)) {
-		
-			head = head.next;
-			found = true;
-			}
-	//	}
-		else {
-		while(temp.next != null && temp.next != tail && !found) {
-			if(temp.next.key.equals(key)) {
-				temp.next = temp.next.next;
+		if(head != null) {
+			if(head.key.equals(key)) {
+				head = head.next;
 				found = true;
 			}
-			//
-			 
-		if(!found)	temp = temp.next;
-		}
-			if(tail.key.equals(key)) {
-				tail = temp;
-				tail.next = null;
-				found = true;
-		}
+			else {
+				while(temp.next != null && temp.next != tail && !found) {
+					if(temp.next.key.equals(key)) {
+						temp.next = temp.next.next;
+						found = true;
+					}
+					if(!found)	temp = temp.next;
+				}
+				if(tail.key.equals(key)) {
+					tail = temp;
+					tail.next = null;
+					found = true;
+				}
 	
+			}
 		}
-		}
-		if(!found){
+		if(!found) {
 			throw new KeyNotFoundException("cannot delete non-existent key");	
 		}
 	}
